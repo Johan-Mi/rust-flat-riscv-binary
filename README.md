@@ -7,7 +7,7 @@
   rustflags = ["-C", "link-args=-Tlinker-script.xc", "-C", "target-feature=-c"]
   ```
   - `-c` disables compressed instructions.
-- Copy `/usr/riscv64-linux-gnu/ldscripts/elf64lriscv_lp64f.xc` to the project root and name it `linker-script.xc`.
+- Copy `/usr/riscv64-linux-gnu/ldscripts/elf64lriscv.xc` to the project root and name it `linker-script.xc`.
 - Make the following changes to the linker script:
   - Move the `.text` section to just below the `PROVIDE` line.
   - Add `*(.text._start)` as its first entry.
