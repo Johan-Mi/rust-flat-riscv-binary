@@ -1,12 +1,11 @@
-# Compiling Rust to a flat RV64G binary
+# Compiling Rust to a flat RV64GC binary
 
 - Put the following in `.cargo/config.toml`:
   ```toml
   [build]
   target = "riscv64gc-unknown-none-elf"
-  rustflags = ["-C", "link-args=-Tlinker-script.xc", "-C", "target-feature=-c"]
+  rustflags = ["-C", "link-args=-Tlinker-script.xc"]
   ```
-  - `-c` disables compressed instructions.
 - Copy `/usr/riscv64-linux-gnu/ldscripts/elf64lriscv.xc` to the project root and name it `linker-script.xc`.
 - Make the following changes to the linker script:
   - Move the `.text` section to just below the `PROVIDE` line.
